@@ -2,6 +2,7 @@ const Reducer = (state, action) => {
     switch (action.type) {
         case 'SelectBig': return {...state, SelectedData: state.BigData}
         case 'SelectSmall': return {...state, SelectedData: state.SmallData}
+        case 'UnselectData': return {...state, SelectedData: null}
         case 'Loading': return {...state, Loader: true}
         case 'LoadData':
             if (state.AddedArray.length === 0)
