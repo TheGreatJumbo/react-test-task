@@ -22,6 +22,7 @@ const Reducer = (state, action) => {
         case 'AddPerson': {
             return {
                 ...state,
+                 Search: '',
                 MainArray: state.SortBy(state.Order.order, [action.payload.person, ...state.MainArray], state.Order.direction),
                 AddedArray: [action.payload.person, ...state.AddedArray],
                 Pages: action.payload.pages
