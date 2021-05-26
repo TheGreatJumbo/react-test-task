@@ -25,10 +25,10 @@ const AddForm = () => {
         },
         validationSchema: Yup.object().shape({
             id: Yup.number().required('ID required').positive('positive number expected').integer('integer number expected'),
-            firstName: Yup.string().trim().required('first name required'),
-            lastName: Yup.string().trim().required('last name required'),
-            email: Yup.string().trim().required('email required').email('not an email format'),
-            phone: Yup.string().trim().required('phone number required')
+            firstName: Yup.string().trim().matches('[A-Za-z]', 'letters expected').required('first name required'),
+            lastName: Yup.string().trim().matches('[A-Za-z]', 'letters expected').required('last name required'),
+            email: Yup.string().trim().required('email required').email('wrong email format'),
+            phone: Yup.string().trim().matches('\\([0-9]{3}\\)[0-9]{3}-[0-9]{4}', 'wrong phone format').required('phone number required')
         }),
         onSubmit: values => {
             const Person = {
@@ -61,7 +61,7 @@ const AddForm = () => {
                                 return (
                                     <div className='mb-3' key={input.name}>
                                         <label htmlFor='id' className='form-label'>{input.label}</label>
-                                        <input id={input.name} type={input.type} className='form-control' pattern={input.type === 'tel' ? '\\([0-9]{3}\\)[0-9]{3}-[0-9]{4}' : null} {...formik.getFieldProps(input.name)}/>
+                                        <input id={input.name} type={input.type} className='form-control' {...formik.getFieldProps(input.name)}/>
                                         {formik.touched[input.name] && formik.errors[input.name] ? <div className='form-text text-danger'>{formik.errors[input.name]}</div> : null}
                                     </div>)
                             })}
