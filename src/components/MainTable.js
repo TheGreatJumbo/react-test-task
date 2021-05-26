@@ -48,7 +48,7 @@ const MainTable = () => {
                 }</tr>
                 </thead>
                 <tbody>{
-                    SearchFilter(State.MainArray, State.Search).length === 0 ? <tr><th>No items. Load data from server or add 1st person</th><th/><th/><th/><th/></tr> :
+                    SearchFilter(State.MainArray, State.Search).length === 0 ? <tr><th>No items. Change filter or load data or add 1st person</th><th/><th/><th/><th/></tr> :
                     SearchFilter(State.MainArray, State.Search)
                         .map((row, i) => {
                             if (row && i + 1 > (State.Page - 1) * 50 && i + 1 <= State.Page * 50) {
