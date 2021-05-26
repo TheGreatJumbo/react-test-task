@@ -69,6 +69,7 @@ const App = () => {
                     Dispatch({type: 'SetAlert', payload: {color: 'success', text: 'Data loaded successfully'}})
                 })
                 .catch(error => {
+                    Dispatch({type: 'UnselectData'})
                     Dispatch({type: 'Loaded'})
                     Dispatch({type: 'SetAlert', payload: {color: 'danger', text: error.message}})
                 })
