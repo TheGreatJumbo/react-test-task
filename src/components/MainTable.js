@@ -34,7 +34,6 @@ const MainTable = () => {
 
     return (
         <div className='table-responsive mt-2' style={{display: State.Loader ? 'none' : ''}}>
-            <button className="btn" onClick={() => console.log(State)}>STATE</button>
             <table className='table table-hover caption-top'>
                 <caption>[{State.Page}/{State.Pages.length}] List of people {State.Search ? `includes ${State.Search}` : ''}</caption>
                 <thead className='table-light'>
