@@ -6,10 +6,10 @@ const Reducer = (state, action) => {
         case 'LoadData':
             if (state.AddedArray.length === 0)
             return {
-                ...state, MainArray: state.SortBy(state.Order.order, action.payload, state.Order.direction)
+                ...state, Search: '', MainArray: state.SortBy(state.Order.order, action.payload, state.Order.direction)
             }
             else return {
-                ...state, MainArray: state.SortBy(state.Order.order, [...state.AddedArray, ...action.payload], state.Order.direction)
+                ...state, Search: '', MainArray: state.SortBy(state.Order.order, [...state.AddedArray, ...action.payload], state.Order.direction)
             }
         case 'SetPages': return {...state, Pages: action.payload}
         case 'Loaded': return {...state, Loader: false}
